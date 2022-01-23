@@ -2,8 +2,8 @@
 // Created by Andrew Huang on 1/23/2022.
 //
 
-#ifndef PLAYGROUND_APP_H
-#define PLAYGROUND_APP_H
+#ifndef SD2_APP_H
+#define SD2_APP_H
 
 #include <SDL_video.h>
 #include <SDL_events.h>
@@ -47,4 +47,4 @@ private:
     float _clearColor[4]{0.4f, 0.8f, 1.0f, 1.0f};
 };
 
-#endif //PLAYGROUND_APP_H
+#endif //SD2_APP_H

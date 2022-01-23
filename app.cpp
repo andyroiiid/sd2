@@ -47,7 +47,7 @@ App::App() {
     SDL_Init(SDL_INIT_EVERYTHING);
 
     _window = SDL_CreateWindow(
-            "DX11",
+            "SD2",
             SDL_WINDOWPOS_CENTERED,
             SDL_WINDOWPOS_CENTERED,
             800,
@@ -71,23 +71,23 @@ App::~App() {
 void App::createDeviceD3D() {
     HWND hWnd = getWindowHandle(_window);
 
-    DXGI_SWAP_CHAIN_DESC sd{0};
+    DXGI_SWAP_CHAIN_DESC swapChainDesc{0};
 
-    sd.BufferDesc.Width = 0;
-    sd.BufferDesc.Height = 0;
-    sd.BufferDesc.RefreshRate.Numerator = 60;
-    sd.BufferDesc.RefreshRate.Denominator = 1;
-    sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    swapChainDesc.BufferDesc.Width = 0;
+    swapChainDesc.BufferDesc.Height = 0;
+    swapChainDesc.BufferDesc.RefreshRate.Numerator = 60;
+    swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
+    swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 
-    sd.SampleDesc.Count = 1;
-    sd.SampleDesc.Quality = 0;
+    swapChainDesc.SampleDesc.Count = 1;
+    swapChainDesc.SampleDesc.Quality = 0;
 
-    sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    sd.BufferCount = 2;
-    sd.OutputWindow = hWnd;
-    sd.Windowed = TRUE;
-    sd.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-    sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
+    swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+    swapChainDesc.BufferCount = 2;
+    swapChainDesc.OutputWindow = hWnd;
+    swapChainDesc.Windowed = TRUE;
+    swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+    swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
     const std::vector<D3D_FEATURE_LEVEL> featureLevels{
             D3D_FEATURE_LEVEL_11_1,
@@ -105,7 +105,7 @@ void App::createDeviceD3D() {
             featureLevels.data(),
             featureLevels.size(),
             D3D11_SDK_VERSION,
-            &sd,
+            &swapChainDesc,
             _swapChain.put(),
             _device.put(),
             &featureLevel,

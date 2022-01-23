@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(playground CXX)
+project(sd2 CXX)
 
 set(BUILD_SHARED_LIBS OFF)
 
@@ -10,8 +10,8 @@ add_subdirectory(imgui EXCLUDE_FROM_ALL)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(playground main.cpp app.cpp app.h)
+add_executable(sd2 main.cpp app.cpp app.h)
 
-target_link_libraries(playground SDL2-static SDL2main D3D11 imgui)
+target_link_libraries(sd2 SDL2-static SDL2main D3D11 imgui)
 
-target_compile_definitions(playground PRIVATE WIN32_LEAN_AND_MEAN)
+target_compile_definitions(sd2 PRIVATE WIN32_LEAN_AND_MEAN)
