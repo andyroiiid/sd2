@@ -10,8 +10,8 @@ add_subdirectory(imgui EXCLUDE_FROM_ALL)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(sd2 main.cpp app.cpp app.h)
+add_executable(sd2 main.cpp app.cpp app.h vertex.h)
 
 target_link_libraries(sd2 SDL2-static SDL2main D3D11 imgui)
 
-target_compile_definitions(sd2 PRIVATE WIN32_LEAN_AND_MEAN)
+target_compile_definitions(sd2 PRIVATE WIN32_LEAN_AND_MEAN ENGINE_DEBUG_RENDER)

@@ -27,6 +27,12 @@ private:
 
     void createRenderTarget();
 
+    void createPipeline();
+
+    void createVertexBuffer();
+
+    void uploadVertexBuffer();
+
     void handleEvents();
 
     void handleEvent(SDL_Event &event);
@@ -42,9 +48,17 @@ private:
     winrt::com_ptr<ID3D11DeviceContext> _context;
     winrt::com_ptr<IDXGISwapChain> _swapChain;
 
+    int _width = 0, _height = 0;
     winrt::com_ptr<ID3D11RenderTargetView> _mainRenderTargetView;
 
-    float _clearColor[4]{0.4f, 0.8f, 1.0f, 1.0f};
+    float _clearColor[4]{0.5f, 0.5f, 0.5f, 1.0f};
+
+    winrt::com_ptr<ID3D11VertexShader> _vertexShader;
+    winrt::com_ptr<ID3D11InputLayout> _inputLayout;
+    winrt::com_ptr<ID3D11PixelShader> _pixelShader;
+    winrt::com_ptr<ID3D11RasterizerState> _rasterizer;
+
+    winrt::com_ptr<ID3D11Buffer> _vertexBuffer;
 };
 
 #endif //SD2_APP_H
